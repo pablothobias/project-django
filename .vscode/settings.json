@@ -2,10 +2,12 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
-    "python.formatting.provider": "none",
+    "python.formatting.provider": "black",
     "python.testing.pytestArgs": [
         "."
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "mypy.debugLogging": true,
+    "mypy.dmypyExecutable": "${workspaceFolder}/virtual_environment/bin/dmypy"
 }
