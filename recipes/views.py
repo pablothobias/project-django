@@ -5,7 +5,8 @@ from django.shortcuts import render
 
 
 def home_view(request):
-    return render(request, "home.html")
+    context = {"name": "Pablo Thobias"}
+    return render(request, "recipes/pages/home.html", context=context)
 
 
 def about_view(request):
