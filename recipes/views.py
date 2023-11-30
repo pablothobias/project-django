@@ -9,4 +9,5 @@ def recipes_home_page(request):
 
 
 def recipe_page(request, id):
-    return render(request, "recipes/pages/home.html", context=context)
+    context = {"id": id}
+    return render(request, "recipes/pages/recipe.html", context=context)
