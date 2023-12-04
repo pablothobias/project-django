@@ -10,4 +10,4 @@ def recipes_home_page(request):
 
 def recipe_page(request, id):
     context = {"id": id}
-    return render(request, "recipes/pages/recipe.html", context=context)
+    return render(request, "recipes/pages/recipe-detail.html", context=context)
