@@ -30,3 +30,12 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Like(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.owner.first_name} {self.owner.last_name} - {self.recipe.title} - {self.created_at}"
