@@ -8,5 +8,5 @@ app_name = "recipes"
 
 urlpatterns = [
     path("", views.recipes_home_page, name="home"),
-    path("<int:id>/", views.recipe_page, name="recipe"),
+    path("recipes/<int:id>/", views.recipe_page, name="recipe"),
 ]
