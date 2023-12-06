@@ -8,19 +8,20 @@ from utils.recipes.factory import make_recipe
 
 
 def recipes_home_page(request):
-    recipes = Recipe.objects.all().order_by("-id")
+    recipes = Recipe.objects.filter(is_published=True).order_by("-id")
     context = {"recipes": recipes}
     return render(request, "recipes/pages/home.html", context=context)
 
 
 def recipe_page(request, id):
-    print(f"id: {id}")
     recipe = Recipe.objects.get(id=id)
     context = {"is_detail_page": True, "recipe": recipe}
     return render(request, "recipes/pages/recipe-detail.html", context=context)
 
 
 def category_page(request, category_id):
-    recipes = Recipe.objects.filter(category__id=category_id).order_by("-id")
+    recipes = Recipe.objects.filter(
+        category__id=category_id, is_published=True
+    ).order_by("-id")
     context = {"recipes": recipes}
     return render(request, "recipes/pages/home.html", context=context)
