@@ -5,11 +5,7 @@ from .models import Recipe
 
 
 def recipes_home_page(request):
-    recipes = get_list_or_404(
-        Recipe.objects.filter(
-            is_published=True,
-        ).order_by("-id")
-    )
+    recipes = Recipe.objects.filter(is_published=True).order_by("-id")
     context = {"recipes": recipes}
 
     return render(request, "recipes/pages/home.html", context=context)
